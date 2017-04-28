@@ -14,6 +14,10 @@ public class Application {
 			Client johnSmith = clientService.register("John", "Smith", "+79132354312");
 			clientService.setPassword(johnSmith, "ad6123s%");
 			clientService.register("Sam", "Bush", "+79239872348");
+			clientService.processMorning();
+			clientService.processMorning();
+			clientService.processMorning();
+			clientService.processAll();
 		}
 	}
 

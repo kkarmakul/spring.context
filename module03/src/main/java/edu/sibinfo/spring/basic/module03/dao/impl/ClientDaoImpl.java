@@ -1,5 +1,6 @@
 package edu.sibinfo.spring.basic.module03.dao.impl;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
@@ -22,6 +23,11 @@ public class ClientDaoImpl implements ClientDao {
 		} else {
 			System.out.printf("Saved %s. Total: %d", client, clients.size()).println();
 		}
+	}
+
+	@Override
+	public Collection<Client> getAll() {
+		return clients.values();
 	}
 
 }
