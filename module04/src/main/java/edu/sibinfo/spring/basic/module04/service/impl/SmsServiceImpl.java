@@ -10,4 +10,9 @@ public class SmsServiceImpl implements SmsService {
 	public void send(String mobile, String text) {
 		System.out.printf("%s : \"%s\"", mobile, text).println();;
 	}
+
+	@Override
+	public String toString() {
+		return "A dummy SMS service that prints out to console";
+	}
 }

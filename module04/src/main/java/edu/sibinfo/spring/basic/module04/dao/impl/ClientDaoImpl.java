@@ -24,4 +24,8 @@ public class ClientDaoImpl implements ClientDao {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return "A dummy Client DAO that stores to memory";
+	}
 }

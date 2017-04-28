@@ -1,8 +1,9 @@
 package edu.sibinfo.spring.basic.module04.service.impl;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,11 @@ public class ClientServiceImpl implements ClientService {
 	@Autowired
 	private MessageDigest encoder;
 
+	@PostConstruct
+	public void init() {
+		System.out.printf("Initialized with:%n ClientDAO: %s,%n SmsService: %s,%n Encoder: %s%n", clientDao, smsService, encoder);
+	}
+	
 	public Client register(String firstName, String familyName, String phone) {
 		Client client = new Client(familyName, firstName, phone);
 		clientDao.save(client);
@@ -34,6 +40,4 @@ public class ClientServiceImpl implements ClientService {
 		client.setPassword(encoder.digest(password.getBytes(StandardCharsets.UTF_8)));
 		clientDao.save(client);		
 	}
-	
-	
 }
