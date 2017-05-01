@@ -19,7 +19,12 @@ public class CustomInitDestroyIfc implements InitializingBean, DisposableBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		System.out.printf("CustomInitDestroyIfc.afterPropertiesSet: %s%n", appContext);
+		System.out.printf("CustomInitDestroyIfc.afterPropertiesSet: %s%n", this);
+	}
+
+	@Override
+	public String toString() {
+		return "CustomInitDestroyIfc [appContext=" + appContext + "]";
 	}
 
 }

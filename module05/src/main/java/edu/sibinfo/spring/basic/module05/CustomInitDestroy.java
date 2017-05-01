@@ -12,6 +12,8 @@ public class CustomInitDestroy {
 	
 	@Autowired
 	private ApplicationContext appContext;
+	@JavaHome
+	public String javaHome;
 	
 	@PostConstruct
 	public void init() {
@@ -21,5 +23,10 @@ public class CustomInitDestroy {
 	@PreDestroy // Не работает, если @Scope("prototype")
 	public void destroy() {
 		System.out.printf("CustomInitDestroy.destroy()%n");
+	}
+
+	@Override
+	public String toString() {
+		return "CustomInitDestroy [javaHome=" + javaHome + "]";
 	}
 }
