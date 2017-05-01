@@ -8,9 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import org.springframework.context.SmartLifecycle;
 
-import edu.sibinfo.spring.basic.module05.util.CommonUtil;
-
-public class AbstractLifeCycleChecker implements SmartLifecycle {
+public abstract class AbstractLifeCycleChecker implements SmartLifecycle {
 	private Lock lock = new ReentrantLock();
 	private AtomicBoolean isRunning = new AtomicBoolean(false);
 
@@ -28,7 +26,7 @@ public class AbstractLifeCycleChecker implements SmartLifecycle {
 					log("start()'ed a moment ago");
 					return;
 				}
-				CommonUtil.waitABit();
+				doStart();
 				isRunning.set(true);
 				log("start()'ed successfully");
 			} finally {
@@ -38,12 +36,14 @@ public class AbstractLifeCycleChecker implements SmartLifecycle {
 		log("start() finished");
 	}
 
+	protected abstract void doStart();
+
 	@Override
 	public void stop(final Runnable callback) {
 		log("stop()...");
 		CompletableFuture.runAsync(() -> {
 			try {
-				CommonUtil.waitABit();
+				doStop();
 				isRunning.set(false);
 				log("stop()'ed");
 			} finally {
@@ -56,6 +56,8 @@ public class AbstractLifeCycleChecker implements SmartLifecycle {
 		log("stop() finished");
 	}
 	
+	protected abstract void doStop();
+	
 	@Override
 	public void stop() {
 		stop(null);
@@ -64,11 +66,6 @@ public class AbstractLifeCycleChecker implements SmartLifecycle {
 	@Override
 	public boolean isRunning() {
 		return isRunning.get();
-	}
-
-	@Override
-	public int getPhase() {
-		return 0;
 	}
 
 	@Override
