@@ -16,6 +16,9 @@ public class Application {
 			clientService.register("Luke", "Ford", "+79239889568");
 			clientService.register("John", "Smith", "+79132354312");
 			clientService.register("Sam", "Bush", "+79239872348");
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 }
