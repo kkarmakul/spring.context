@@ -18,10 +18,13 @@ public class ClientDaoImpl implements ClientDao {
 		if (client.getId() == null) {
 			client.setId(lastId.getAndIncrement());
 			clients.put(client.getId(), client);
-			System.out.printf("Added %s. Total: %d", client, clients.size()).println();
+			System.out.printf("[%d] Added %s. Total: %d", getThreadId(), client, clients.size()).println();
 		} else {
-			System.out.printf("Saved %s. Total: %d", client, clients.size()).println();
+			System.out.printf("[%d] Saved %s. Total: %d", getThreadId(), client, clients.size()).println();
 		}
 	}
 
+	private long getThreadId() {
+		return Thread.currentThread().getId();
+	}
 }
