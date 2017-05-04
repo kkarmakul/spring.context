@@ -50,4 +50,8 @@ public class Client {
 	public void setPassword(byte[] passwordEncoded) {
 		this.passwordEncoded = passwordEncoded;
 	}
+
+	public byte[] getPassword() {
+		return passwordEncoded;
+	}
 }

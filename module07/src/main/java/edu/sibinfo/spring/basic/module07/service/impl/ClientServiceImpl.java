@@ -1,6 +1,5 @@
 package edu.sibinfo.spring.basic.module07.service.impl;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
@@ -23,6 +22,12 @@ public class ClientServiceImpl implements ClientService {
 	private MessageDigest encoder;
 
 	public Client register(String firstName, String familyName, String phone) {
+		if (firstName == null || firstName.isEmpty()) {
+			return null;
+		}
+		if (familyName == null || familyName.isEmpty()) {
+			return null;
+		}
 		Client client = new Client(familyName, firstName, phone);
 		clientDao.save(client);
 		smsService.send(phone, String.format("%s %s, you were registered", familyName, firstName));
