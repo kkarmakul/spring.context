@@ -1,4 +1,4 @@
-package edu.sibinfo.spring.basic.module09.dao.impl;
+package edu.sibinfo.spring.basic.common09.dao.impl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,8 +6,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Repository;
 
-import edu.sibinfo.spring.basic.module09.dao.ClientDao;
-import edu.sibinfo.spring.basic.module09.domain.Client;
+import edu.sibinfo.spring.basic.common09.dao.ClientDao;
+import edu.sibinfo.spring.basic.common09.domain.Client;
 
 @Repository
 public class ClientDaoImpl implements ClientDao {

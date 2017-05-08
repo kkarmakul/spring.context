@@ -1,6 +1,6 @@
 package edu.sibinfo.spring.basic.module09.service;
 
-import edu.sibinfo.spring.basic.module09.domain.Client;
+import edu.sibinfo.spring.basic.common09.domain.Client;
 
 public class ClientRegisteredEvent {
 	private final Client client;

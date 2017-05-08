@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import edu.sibinfo.spring.basic.module09.dao.ClientDao;
-import edu.sibinfo.spring.basic.module09.domain.Client;
+import edu.sibinfo.spring.basic.common09.dao.ClientDao;
+import edu.sibinfo.spring.basic.common09.domain.Client;
 import edu.sibinfo.spring.basic.module09.service.ClientService;
 
 @RunWith(SpringRunner.class)

@@ -1,4 +1,4 @@
-package edu.sibinfo.spring.basic.module09.domain;
+package edu.sibinfo.spring.basic.common09.domain;
 
 import java.nio.charset.StandardCharsets;
 

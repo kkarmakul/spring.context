@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import edu.sibinfo.spring.basic.module09.domain.Client;
+import edu.sibinfo.spring.basic.common09.domain.Client;
 import edu.sibinfo.spring.basic.module09.service.ClientService;
 
 @SpringBootApplication

@@ -3,7 +3,7 @@ package edu.sibinfo.spring.basic.module09.service.impl;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import edu.sibinfo.spring.basic.module09.domain.Client;
+import edu.sibinfo.spring.basic.common09.domain.Client;
 import edu.sibinfo.spring.basic.module09.service.ClientRegisteredEvent;
 
 @Service
