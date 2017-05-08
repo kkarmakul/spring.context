@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+	<appender name="SmsServiceLog"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<file>SmsServiceLog.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>SmsServiceLog.%i.log</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>1kb</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+	<logger name="edu.sibinfo.spring.basic.module09.service" level="DEBUG" additivity="false">
+		<appender-ref ref="SmsServiceLog"/>
+	</logger>
+</included>	
