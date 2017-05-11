@@ -3,11 +3,14 @@ package edu.sibinfo.spring.basic.module09;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Import;
 
+import edu.sibinfo.spring.basic.common09.CommonConfiguration;
 import edu.sibinfo.spring.basic.common09.domain.Client;
 import edu.sibinfo.spring.basic.module09.service.ClientService;
 
 @SpringBootApplication
+@Import(CommonConfiguration.class)
 public class Module09Application {
 
 	public static void main(String[] args) {

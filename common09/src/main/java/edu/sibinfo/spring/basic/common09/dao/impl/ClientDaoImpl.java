@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import edu.sibinfo.spring.basic.common09.dao.ClientDao;
@@ -11,6 +13,8 @@ import edu.sibinfo.spring.basic.common09.domain.Client;
 
 @Repository
 public class ClientDaoImpl implements ClientDao {
+	private static final Logger log = LoggerFactory.getLogger(ClientDao.class);
+	
 	private AtomicLong lastId = new AtomicLong(0L); 
 	private Map<Long, Client> clients = new HashMap<Long, Client>();
 	
@@ -18,9 +22,9 @@ public class ClientDaoImpl implements ClientDao {
 		if (client.getId() == null) {
 			client.setId(lastId.getAndIncrement());
 			clients.put(client.getId(), client);
-			System.out.printf("Added %s. Total: %d", client, clients.size()).println();
+			log.info("Added {}. Total: {}", client, clients.size());
 		} else {
-			System.out.printf("Saved %s. Total: %d", client, clients.size()).println();
+			log.info("Saved {}. Total: {}", client, clients.size());
 		}
 	}
 
