@@ -12,5 +12,5 @@ public class ClientRegisteredEvent {
 
 	public Client getClient() {
 		return client;
-	}  
+	}
 }
