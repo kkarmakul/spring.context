@@ -15,13 +15,13 @@ public class ApplicationConfig {
 	public TaskExecutor createEventExecutor() {
 		return createExecutor("evt-");
 	}
-
+	
 	@Bean("serviceExecutor")
 	public TaskExecutor createServiceExecutor() {
 		return createExecutor("svc-");
 	}
 
-	private TaskExecutor createExecutor(String threadPrefix) {
+	private ThreadPoolTaskExecutor createExecutor(String threadPrefix) {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 		CustomizableThreadFactory threadFactory = new CustomizableThreadFactory();
 		threadFactory.setThreadGroupName("async");
@@ -29,6 +29,11 @@ public class ApplicationConfig {
 		executor.setThreadFactory(threadFactory);
 		executor.setCorePoolSize(3);
 		executor.setMaxPoolSize(4);
+		
+		// Guaranteed grace termination, unless tasks will take more than a second
+		executor.setWaitForTasksToCompleteOnShutdown(true);
+		executor.setAwaitTerminationSeconds(1);
+		
 		return executor;
 	}
 }

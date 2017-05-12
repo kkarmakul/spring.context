@@ -20,7 +20,5 @@ public class Application {
 				}
 			}
 		}
-		Thread.sleep(1000);
 	}
-
 }
