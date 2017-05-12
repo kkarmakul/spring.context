@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="clientDao" class="edu.sibinfo.spring.basic.module01.impl.ClientDaoImpl"/>
+    <bean id="smsService" class="edu.sibinfo.spring.basic.module01.impl.SmsServiceImpl"/>
+    <bean id="clientService" class="edu.sibinfo.spring.basic.module01.impl.ClientServiceImpl">
+    	<constructor-arg name="clientDao" ref="clientDao"/>
+    	<constructor-arg name="smsService" ref="smsService"/>
+    </bean>
+</beans>
